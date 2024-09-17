@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Chenyu Wang">
+    <title>Form Processor</title>
+</head>
+<body>
+
+<h2>Form Data</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Field</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody id="formData" align="center"></tbody>
+</table>
+
+<script>
+    function displayFormData() {
+        const query = window.location.search.substring(1);
+        const params = new URLSearchParams(query);
+        const tbody = document.getElementById('formData');
+
+        params.forEach((value, key) => {
+            const row = document.createElement('tr');
+            const keyCell = document.createElement('td');
+            const valueCell = document.createElement('td');
+
+            keyCell.textContent = key;
+
+            if (key === 'password' || key === 'passwordConfirm') {
+                valueCell.textContent = '*'.repeat(value.length);
+            } else if (key === 'timestamp') {
+                valueCell.textContent = new Date(parseInt(value)).toLocaleString();
+            } else {
+                valueCell.textContent = value;
+            }
+
+            row.appendChild(keyCell);
+            row.appendChild(valueCell);
+            tbody.appendChild(row);
+        });
+    }
+
+    window.onload = displayFormData;
+</script>
+
+</body>
+</html>

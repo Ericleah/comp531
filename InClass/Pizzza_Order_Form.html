@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Guys Order Form</title>
+</head>
+<body>
+    <header>
+        <h1>Pizzza Guys Order Form</h1>
+    </header>
+
+    <div>
+        <img src="https://t3.ftcdn.net/jpg/06/12/86/62/360_F_612866220_1VuIarMVLgoDAYUtBicQwXNKu07InXyf.jpg" width="200" height="200">
+    </div>
+
+<form id="pizzaform" action="#">
+    <label for="name">Name:</label><br>
+    <input type="text" name="name" placeholder="your name" required></p>
+    <label for="address">Address: #### Street Name:...</label><br>
+    <input type="text" name="address" placeholder="delivery address" required></p>
+    <label for="phone">Phone Number: 123-123-1234</label><br>
+    <input type="tel" name="phone" placeholder="123-123-1234" pattern="\d{3}[-]\d{3}[-]\d{4}"></p>
+    <p>Pizza Size</p>
+    <div>
+        <input type="radio" id="Large" name="Size" value="Large" checked>
+        <label for="Large">Large</label>
+        <input type="radio" id="Medium" name="Size" value="Medium" checked>
+        <label for="Medium">Medium</label>
+        <input type="radio" id="Small" name="Size" value="Small" checked>
+        <label for="Small">Small</label>
+    </div>
+
+    <p>Pizza Toppings</p>
+    <div>
+        <input type="checkbox" id="sausage" name="toppings" value="Sausage">
+        <label for="sausage">Sausage</label>
+        <input type="checkbox" id="pepperoni" name="toppings" value="Pepperoni">
+        <label for="pepperoni">Pepperoni</label>
+        <input type="checkbox" id="mushrooms" name="toppings" value="Mushrooms">
+        <label for="mushrooms">Mushrooms</label>
+        <input type="checkbox" id="onions" name="toppings" value="Onions">
+        <label for="onions">Onions</label>
+    </div>
+
+    <div>        
+        <button type="submit">Place Order</button>
+        <button type="reset">Clear</button>
+    </div>
+</form>
+</body>
+</html>

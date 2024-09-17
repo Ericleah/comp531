@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chenyu Wang</title>
+</head>
+<body>
+
+<header>
+    <h1>About Chenyu Wang</h1>
+    <img src="https://www.usnews.com/dims4/USNEWS/0b88060/17177859217/resize/800x540%3E/quality/85/?url=https%3A%2F%2Fwww.usnews.com%2Fcmsmedia%2F45%2F8c%2Fee131da64ce48f9d9b0dd1a23f68%2F210324.jpg" width="200" height="200">
+</header>
+
+<section>
+    <h2>Github Username</h2>
+    <p><a href="https://github.com/Ericleah">Ericleah</a></p>
+</section>
+
+<section>
+    <h2>My Last Trip</h2>
+    <p>
+        My last trip was my first time been here in US. My mom has a sister lives in Seattle. Since there was no direct flight to Houston,
+        I bought the direct flight to Seattle and lived in my aunt's home. She took me to the Seattle Down-town and to visit the Microsoft.
+        I was really excited to visit the Microsoft company. It is my dream to work there, and this trip definetely increase my desire to 
+        work there.
+    </p>
+</section>
+
+<section class="links">
+    <h2>My Favorite Links</h2>
+    <ul>
+        <li><a href="https://www.bilibili.com/" target="_blank">Bilibili</a></li>
+        <li><a href="https://scholar.google.com/" target="_blank">GoogleScholar</a></li>
+        <li><a href="https://github.com" target="_blank">GitHub</a></li>
+    </ul>
+</section>
+
+<section>
+    <h2>Leave a Comment</h2>
+    <textarea placeholder="Your comments here..."></textarea>
+</section>
+
+<p><span id="indicator">10</span> seconds</p>
+
+
+<script>
+    const indicator = document.getElementById("indicator");
+    let count = 10;
+
+    function update(){
+        count--;
+        indicator.innerHTML=count
+
+        if(count == 0){
+            clearInterval(update)
+            window.location.href = "https://www.rice.edu"
+        }
+    }
+
+    const updateindicator = setInterval(update,1000)
+
+    var f = function(a){
+        var msg;
+        if(a){
+            msg = a
+        }
+        else{
+            msg = "The page will redirect when the counter"
+        }
+        alert(msg);
+    }
+
+    setTimeout(f, 5000);
+</script>
+</body>
+</html>

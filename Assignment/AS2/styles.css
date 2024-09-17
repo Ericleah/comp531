@@ -1,0 +1,165 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 20px;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#feed {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+}
+
+#feed th {
+    text-align: left;
+    padding: 10px;
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+#feed td {
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    vertical-align: middle;
+}
+
+#feed tr:hover td {
+    background-color: #f9f9f9;
+}
+
+#feed img {
+    max-width: 150px;
+    height: 150px;
+    border-radius: 5px;
+}
+
+#feed button {
+    padding: 5px 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#feed button:hover {
+    background-color: #555;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #feed, #feed tbody, #feed tr, #feed td {
+        display: block;
+        width: 100%;
+    }
+
+    #feed tr {
+        margin-bottom: 15px;
+    }
+
+    #feed td {
+        text-align: center;
+        padding: 10px;
+    }
+
+    #feed thead {
+        display: none;
+    }
+}
+
+#profile-page {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#profile-page h1 {
+    text-align: center;
+}
+
+#profile-page .form-group {
+    margin-bottom: 15px;
+}
+
+#profile-page label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#profile-page input[type="text"],
+#profile-page input[type="email"],
+#profile-page input[type="tel"],
+#profile-page input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+#profile-page button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#profile-page button:hover {
+    background-color: #45a049;
+}
+
+#profile-page #message {
+    margin-top: 20px;
+    color: red;
+}
+
+#profile-page #profile-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+

@@ -1,0 +1,134 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Chenyu Wang">
+    <title>Registration Page</title>
+</head>
+<body>
+
+<h1>Registration Form</h1>
+
+<form id="registrationForm" action="gptformProcessor.html" method="get">
+    <fieldset>
+        <legend style="font-size: 20px;">Personal Information</legend>
+        <label for="accountName">Account Name:</label>
+        <input type="text" id="accountName" name="accountName" pattern="[A-Za-z][A-Za-z0-9]*" required> 
+        <br><br>
+    
+        <label for="displayName">Display Name (Optional):</label>
+        <input type="text" id="displayName" name="displayName">
+        <br><br>
+    
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+    
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" pattern="\d{3}-\d{3}-\d{4}" placeholder="123-456-7890" required>
+        <br><br>
+    
+        <label for="birthday">Date of Birth:</label>
+        <input type="date" id="birthday" name="birth" required>
+        <br><br>
+    
+        <label for="zipcode">Zipcode:</label>
+        <input type="text" id="zipcode" name="zipcode" pattern="\d{5}" required>
+        <br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br><br>
+    
+        <label for="passwordConfirm">Confirm Password:</label>
+        <input type="password" id="passwordConfirm" name="passwordConfirm" required>
+        <br><br>
+    
+        <input type="hidden" id="timestamp" name="timestamp">
+        <br>
+        <button type="submit">Submit</button>
+        <button type="reset">Clear</button>
+    </fieldset>
+</form>
+
+<script>
+
+    const form = document.getElementById('registrationForm');
+    form.onsubmit = function(event) {
+        checkAge();
+    }
+
+    document.getElementById('timestamp').value = Date.now();
+
+    const accountName = document.getElementById('accountName');
+    accountName.addEventListener('input', function() {
+        if (accountName.validity.patternMismatch) {
+            accountName.setCustomValidity("Account name must start with a letter and only contain letters and numbers.");
+        }
+        else 
+            accountName.setCustomValidity("");
+    })
+
+    const password = document.getElementById('password');
+    password.addEventListener('input', function() {
+        if (password.validity.patternMismatch) {
+            password.setCustomValidity("Password must contain at least 6 characters and only contain letters and numbers.");
+        }
+    })
+
+    const passwordConfirm = document.getElementById('passwordConfirm');
+    passwordConfirm.addEventListener('input', function() {
+        if (passwordConfirm.value !== password.value) {
+            passwordConfirm.setCustomValidity("Passwords do not match.");
+        }
+        else
+            passwordConfirm.setCustomValidity("");
+    })
+
+
+    const email = document.getElementById('email');
+    email.addEventListener('input', function() {
+        if (email.validity.typeMismatch) {
+            email.setCustomValidity("Please enter a valid email address.");
+        }
+        else  
+            email.setCustomValidity("");
+    })
+
+    const phone = document.getElementById('phone');
+    phone.addEventListener('input', function() {
+        if (phone.validity.patternMismatch) {
+            phone.setCustomValidity("Please enter a valid phone number in the format XXX-XXX-XXXX.");
+        }
+        else  
+            phone.setCustomValidity("");
+    })
+
+    const zipcode = document.getElementById('zipcode');
+    zipcode.addEventListener('input', function() {
+        if (zipcode.validity.patternMismatch) {
+            zipcode.setCustomValidity("Please enter a valid 5-digit zipcode.");
+        }
+        else  
+            zipcode.setCustomValidity("");
+    })
+
+    function checkAge() {
+        var dateOfBirth = new Date(document.getElementById('birthday').value);
+        var now = new Date();
+        var age = now.getFullYear() - dateOfBirth.getFullYear();
+        var monthDiff = now.getMonth() - dateOfBirth.getMonth();
+        if (monthDiff < 0 || (monthDiff === 0 && now.getDate() < dateOfBirth.getDate())) {
+            age--;
+        }
+        if (age < 18) {
+            event.preventDefault();
+            alert("You must be at least 18 years old to register.");
+        }
+    }
+
+
+</script>
+
+</body>
+</html>
