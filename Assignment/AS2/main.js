@@ -52,7 +52,6 @@ const posts = [
 function createPostRow(post, index) {
     const row = document.createElement('tr');
 
-    // Image cell
     const imgCell = document.createElement('td');
     const img = document.createElement('img');
     img.src = post.images[0];
@@ -60,14 +59,12 @@ function createPostRow(post, index) {
     imgCell.appendChild(img);
     row.appendChild(imgCell);
 
-    // Content cell
     const contentCell = document.createElement('td');
     const content = document.createElement('p');
     content.textContent = post.content;
     contentCell.appendChild(content);
     row.appendChild(contentCell);
 
-    // Action cell
     const actionCell = document.createElement('td');
     const button = document.createElement('button');
     button.textContent = 'Stop';

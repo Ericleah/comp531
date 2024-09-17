@@ -45,12 +45,15 @@ function updateProfile() {
 
     let changes = [];
     let isValid = true;
+    let errorMessage = '';
 
+    // 处理 Display Name
     if (displayName.value && displayName.value !== profileData.displayName) {
         changes.push(`Display Name: ${profileData.displayName} -> ${displayName.value}`);
         profileData.displayName = displayName.value;
     }
 
+    // 处理 Email
     if (email.value) {
         if (validateInput(email, 'email')) {
             if (email.value !== profileData.email) {
@@ -58,11 +61,12 @@ function updateProfile() {
                 profileData.email = email.value;
             }
         } else {
-            message.textContent = 'Invalid email format';
+            errorMessage += 'Invalid email format. ';
             isValid = false;
         }
     }
 
+    // 处理 Phone
     if (phone.value) {
         if (validateInput(phone, 'phone')) {
             if (phone.value !== profileData.phone) {
@@ -70,11 +74,12 @@ function updateProfile() {
                 profileData.phone = phone.value;
             }
         } else {
-            message.textContent = 'Invalid phone format (use XXX-XXX-XXXX)';
+            errorMessage += 'Invalid phone format (use XXX-XXX-XXXX). ';
             isValid = false;
         }
     }
 
+    // 处理 Zipcode
     if (zipcode.value) {
         if (validateInput(zipcode, 'zipcode')) {
             if (zipcode.value !== profileData.zipcode) {
@@ -82,33 +87,38 @@ function updateProfile() {
                 profileData.zipcode = zipcode.value;
             }
         } else {
-            message.textContent = 'Invalid zipcode format (use 5 digits)';
+            errorMessage += 'Invalid zipcode format (use 5 digits). ';
             isValid = false;
         }
     }
 
+    // 处理 Password
     if (password.value) {
         if (password.value === confirmPassword.value) {
             changes.push(`Password: ${'*'.repeat(profileData.password.length)} -> ${'*'.repeat(password.value.length)}`);
             profileData.password = password.value;
         } else {
-            message.textContent = 'Passwords do not match';
+            errorMessage += 'Passwords do not match. ';
             isValid = false;
         }
     }
 
+    // 判断是否有效并更新
     if (isValid) {
         if (changes.length > 0) {
-            message.textContent = 'Updated fields:\n' + changes.join('\n');
+            message.innerHTML = 'Updated fields:<br>' + changes.join('<br>'); // 用 innerHTML 保证换行显示
             initializeProfile();
         } else {
             message.textContent = 'No changes made';
         }
-        
-        // Clear input fields
+
+        // 清空输入字段
         [displayName, email, phone, zipcode, password, confirmPassword].forEach(input => input.value = '');
+    } else {
+        message.textContent = errorMessage.trim();
     }
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
     initializeProfile();
